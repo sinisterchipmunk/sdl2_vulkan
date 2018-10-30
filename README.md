@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-See [https://github.com/sinisterchipmunk/sdl2_vulkan/tree/master/test/sdl2_vulkan_test.rb#L11-24] for usage.
+See [sdl2_vulkan_test.rb#L11-L24](https://github.com/sinisterchipmunk/sdl2_vulkan/tree/master/test/sdl2_vulkan_test.rb#L11-L24) for usage.
 
 ## Development
 
