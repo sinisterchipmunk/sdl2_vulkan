@@ -1,5 +1,4 @@
-#include "ruby.h"
-#include "SDL2/SDL_vulkan.h"
+#include "sdl2_vulkan.h"
 
 // from ruby-sdl2
 typedef struct Window {
@@ -43,8 +42,7 @@ static VALUE Vulkan_unload_library(VALUE self) {
  * would be NULL.
  */
 static VALUE Vulkan_get_vk_get_instance_proc_addr(VALUE self) {
-  unsigned long long addr = (unsigned long long) SDL_Vulkan_GetVkGetInstanceProcAddr();
-  return LL2NUM(addr);
+  return PTR2NUM(SDL_Vulkan_GetVkGetInstanceProcAddr());
 }
 
 /*
@@ -91,12 +89,12 @@ static VALUE Window_create_surface(VALUE self, VALUE instance_addr) {
   if (window_data == NULL || window_data->window == NULL)
     rb_raise(rb_eArgError, "Not a window");
 
-  VkInstance instance = (VkInstance) NUM2LL(instance_addr);
+  VkInstance instance = (VkInstance) NUM2PTR(instance_addr);
   VkSurfaceKHR surface;
   if (!SDL_Vulkan_CreateSurface(window_data->window, instance, &surface))
     rb_raise(rb_eRuntimeError, "Failed to create drawing surface");
 
-  return LL2NUM((unsigned long long) surface);
+  return PTR2NUM(surface);
 }
 
 /*
