@@ -4,6 +4,8 @@ Adds on to the [`ruby-sdl2`](https://github.com/ohai/ruby-sdl2) gem to expose
 SDL2's Vulkan functions to Ruby in order to make it possible to present Vulkan
 swapchain images to SDL2 windows.
 
+Requires SDL v2.0.8 or higher, which is when Vulkan support was added to SDL.
+
 ## Installation
 
 Add this line to your application's Gemfile:
